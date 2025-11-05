@@ -1,0 +1,26 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS dataforge_stream_data (
+  hour          STRING,
+  lat           DOUBLE,
+  long          DOUBLE,
+  signal        BIGINT,
+  network       STRING,
+  operator      STRING,
+  status        BIGINT,
+  description   STRING,
+  speed         DOUBLE,
+  satellites    DOUBLE,
+  precission    DOUBLE,
+  provider      STRING,
+  activity      STRING,
+  postal_code   DOUBLE
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+  'separatorChar' = ',',
+  'quoteChar' = '"'
+)
+LOCATION 's3://data-forge-bkt1/processed/main/'
+TBLPROPERTIES (
+  'skip.header.line.count'='1',
+  'classification'='csv'
+);

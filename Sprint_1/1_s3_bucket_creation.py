@@ -1,6 +1,0 @@
-#Create an S3:
-
-import boto3
-client = boto3.client('s3')
-client.create_bucket(Bucket='SIG-mobile_data_logs')
-print("✅ Bucket created successfully.")
