@@ -74,7 +74,7 @@ df_casted = (
     .withColumn("speed", col("speed").cast(DoubleType()))
     .withColumn("satellites", col("satellites").cast(DoubleType()))
     .withColumn("precision", col("precision").cast(DoubleType()))
-    .withColumn("postal_code", col("postal_code").cast(DoubleType()))
+    .withColumn("postal_code", col("postal_code").cast(IntegerType()))
 )
 
 # ---- Write main cleaned data to S3 ----
